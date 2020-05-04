@@ -1,0 +1,47 @@
+<div class='card'>
+  <div class='card-header'>
+    Product-Details
+  </div>
+  <div @fade class='card-body'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class='row'>
+          <div class='col-md-4'>Name:</div>
+          <div class='col-md-8'>{{bookDetails?.bookName}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Author:</div>
+          <div class='col-md-8'>{{bookDetails?.authorName}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Code:</div>
+          <div class='col-md-8'>{{bookDetails?.bookId}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Description:</div>
+          <div class='col-md-8'>{{bookDetails?.bookDescription}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Availability:</div>
+          <div class='col-md-8'>N.A</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Price:</div>
+          <div class='col-md-8'>N.A</div>
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <img class='center-block img-responsive' [style.width.px]='200' [style.margin.px]='2'
+          src='https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F02%2F22%2F06%2F35%2F24%2F2154a2b3-836f-473c-868f-85124af7677d%2F537119_Proi.png?auto=format&ch=Width%2CDPR&w=250&h=250" alt="Photo of a Shiba Inu'
+          [title]='bookDetails?.bookName'>
+      </div>
+    </div>
+  </div>
+  <div class='card-footer'>
+    <button mat-button routerLink="/product">Back</button>
+    <button mat-button (click)="editBook('Update')">Edit</button>
+    <button mat-button (click)="deleteBook('Remove')">Delete</button>
+  </div>
+</div>
+
+<notifier-container></notifier-container>

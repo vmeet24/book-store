@@ -1,0 +1,45 @@
+<div mat-dialog-content>
+    <div *ngIf="this.data.type != this.dialogType[0]; else update">
+        <form [formGroup]="bookForm" (ngSubmit)="addBook(bookForm.value)">
+            <mat-form-field>
+                <input formControlName="bookId" matInput placeholder="Id">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input formControlName="bookName" matInput placeholder="Name">
+                <mat-error>
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput formControlName="authorName" placeholder="Author">
+                <mat-error>
+                    Author Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <textarea cols="30" rows="8" matInput formControlName="bookDescription"
+                    placeholder="Description"></textarea>
+                <mat-error>
+                    BookDescription is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+    <ng-template #update>
+        <div class="header" id="message">{{this.data.value}}</div>
+    </ng-template>
+</div>
+
+<div mat-dialog-actions class="dialog-action-group">
+    <button type="button" mat-button (click)="onNoClick()">No</button>
+    <button type="button" mat-button (click)="confirmEvent()" cdkFocusInitial>Yes</button>
+</div>
+<br>
+<div *ngIf="!bookForm.valid && this.data.type != this.dialogType[0]">
+    <mat-error>
+        Enter All Details
+    </mat-error>
+</div>

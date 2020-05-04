@@ -1,0 +1,52 @@
+<app-top-bar></app-top-bar>
+
+<div class='card'>
+    <div class="card-header">
+        Product-List
+    </div>
+    <div class="card-body">
+        <mat-form-field id="filter">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- View Column -->
+            <ng-container matColumnDef="options">
+                <th mat-header-cell *matHeaderCellDef><b>Options</b></th>
+                <td mat-cell id="options" @fade *matCellDef="let element" style="width: 20%">
+                    <button type="button" (click)="viewBook(element.bookId)" mat-stroked-button
+                        color="primary">View</button>
+                    <button type="button" (click)="deleteBook(element.bookId,'Remove')" mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> <b>Id.</b> </th>
+                <td mat-cell @fade *matCellDef="let element"> {{element.bookId}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> <b>Name</b> </th>
+                <td mat-cell @fade *matCellDef="let element "> {{element.bookName}} </td>
+            </ng-container>
+
+            <!-- Author Column -->
+            <ng-container matColumnDef="author">
+                <th mat-header-cell *matHeaderCellDef> <b>Author</b> </th>
+                <td mat-cell @fade *matCellDef="let element"> {{element.authorName}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
+<div class="addBtn">
+    <button type="submit" (click)="addBook('Add')" mat-raised-button color="primary">Add</button>
+</div>
+
+<notifier-container></notifier-container>

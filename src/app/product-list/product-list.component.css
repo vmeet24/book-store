@@ -1,0 +1,23 @@
+h2 {
+  align-content: center;
+}
+table {
+  width: 100%;
+}
+
+#filter {
+  width: 35%;
+}
+
+.addBtn {
+  margin-top: 1em;
+  flex-direction: row-reverse;
+  display: flex;
+}
+
+.addBtn button {
+  width: 10%;
+  height: 6vh;
+  margin: 8px;
+  font-size: 20px;
+}

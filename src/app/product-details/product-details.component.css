@@ -1,0 +1,14 @@
+.example-card {
+    position: absolute;
+    max-width: 25%;
+    left:calc((100% - 25%) / 2);
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  div.card{
+    margin: 8px;
+  }
